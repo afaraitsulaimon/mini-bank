@@ -1,8 +1,14 @@
-import { StyleSheet, Text, View, ImageBackground, Image } from "react-native";
+import { StyleSheet, Text, View, ImageBackground, Image , DrawerLayoutAndroid, Touchable} from "react-native";
 import React from "react";
 import Top from "../components/top";
+import { TouchableOpacity } from "react-native-web";
 
-const Home = () => {
+
+const Home = ({navigation}) => {
+
+  const handleSignInPage = () => {
+    navigation.navigate('LoginPage')
+  }
   return (
     <View style={styles.container}>
       <ImageBackground
@@ -27,8 +33,17 @@ const Home = () => {
 
 
             <View style={styles.downButton}>
-              <Text style={styles.downButtonText1}>Sign in</Text>
-              <Text style={styles.downButtonText2}>SignUp</Text>
+              <TouchableOpacity onPress={handleSignInPage}>
+                <Text style={styles.downButtonText1}>
+                  Sign in
+                  </Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity>
+                <Text style={styles.downButtonText2}>
+                  SignUp
+                  </Text>
+              </TouchableOpacity>
             </View>
 
           </View>
@@ -37,6 +52,7 @@ const Home = () => {
     </View>
   );
 };
+
 
 export default Home;
 

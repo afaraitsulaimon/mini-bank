@@ -1,14 +1,23 @@
 import { StyleSheet, Image, View } from 'react-native'
 import React from 'react'
+import { TouchableOpacity } from 'react-native-web'
 
-const Top = () => {
+const Top = ({navigation}) => {
+
+  const handleGoHome = () => {
+    navigation.push('HomePage');
+  }
+
   return (
     <View>
+      <TouchableOpacity >
     <Image
       source={require("../assets/groove-logo.png")}
       resizeMode="cover"
       style={styles.logoImage}
+      onPress={handleGoHome}
     />
+    </TouchableOpacity>
   </View>
   )
 }
